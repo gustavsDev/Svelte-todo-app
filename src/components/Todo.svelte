@@ -9,20 +9,28 @@
  }
 
  function deleteTODO(i) {
-   list = list.splice(i, 1);
+   list = list.filter((item, index, arr) => {
+     return i != index;
+   });
  }
 </script>
-
-<ul>
-  {#each list as item, i}
-  <li><img width="20" height="20" src="https://img.icons8.com/ios-filled/50/circled-x.png" alt="circled-x" class="red img_button" style="margin-right: 1rem;" on:click={() => { deleteTODO(i); }} /> {item}</li>
-  {/each}
-</ul>
 
 <div>
   <input type="text" name="value" bind:value={value}>
   <button on:click={addTODO}>Add</button>
 </div>
+
+<ul>
+  {#each list as item, i}
+    <li>
+      <button type="button" style="margin-right: 1rem;" on:click={() => { deleteTODO(i); }}>
+        <img width="20" height="20" src="https://img.icons8.com/ios-filled/50/circled-x.png" alt="circled-x" class="red img_button">
+      </button>
+
+      {item}
+    </li>
+  {/each}
+</ul>
 
 <style>
   ul {
@@ -35,12 +43,17 @@
     align-items: center;
   }
 
+  li button {
+    background: none;
+    border: none;
+  }
+
   li:before {
     content: "";
     width: 2px;
     height: 1rem;
     position: relative;
-    left: calc(20px + 0.5rem);
+    left: calc(20px);
     background-color: black;
   }
 
