@@ -51,10 +51,10 @@
   li:before {
     content: "";
     width: 2px;
-    height: 1rem;
+    height: 20px;
     position: relative;
-    left: calc(20px);
-    background-color: black;
+    left: 2rem;
+    background-color: #AAA;
   }
 
   .red {

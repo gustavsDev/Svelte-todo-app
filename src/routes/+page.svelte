@@ -13,6 +13,7 @@
     height: 25px;
     display: flex;
     align-items: center;
+    align-self: left;
   } .legal img {
     margin: 0px 0.25rem;
     height: 100%;
